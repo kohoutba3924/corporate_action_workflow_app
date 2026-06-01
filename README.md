@@ -44,13 +44,15 @@ Both interfaces operate on the same queue and processor, demonstrating how to bu
 ## Test‑Driven Development
 The project includes a comprehensive test suite covering:
 - Domain validation  
-- Queue behavior  
-- Processing logic
-- CLI commands  
+- Queue and persistence behavior  
+- Processing strategies and logic
 - API endpoints  
-- End‑to‑end workflow sc
 
 This ensures correctness and provides confidence when extending or refactoring the system.
+
+### Note on CLI Testing
+
+The CLI layer is intentionally not included in the automated test suite. It serves as a thin wrapper around the underlying queue and processor, both of which are fully tested. While subprocess‑based CLI testing is possible, it adds unnecessary complexity and overhead without improving confidence in the system’s behavior.
 
 ## Extensibility and Scalability
 The architecture is intentionally modular:
@@ -121,6 +123,10 @@ The `ActionProcessor` is responsible for:
 - Updating the persistent queue  
 
 The processor is intentionally simple but structured to support pluggable strategies for different action types.
+
+### Note on Logging
+
+A placeholder logging hook is included in the processor to show where workflow events would be captured in a production system. Full logging was intentionally deferred for a later iteration to keep the initial version focused on core architecture, workflow design, and test coverage. This ensures the project remains lightweight while still demonstrating awareness of where observability concerns fit into the system.
 
 ## 3.5 CLI Interface
 
@@ -240,14 +246,15 @@ Interactive documentation is automatically generated at:
 
  A simplified view of the repository layout:
 
- first_app/
-    api/
-    cli/
-    models/
-    persistence/
-    processor/
-    queue/
-    services/
+src/
+  first_app/
+      api/
+      cli/
+      models/
+      persistence/
+      processor/
+      queue/
+      services/
 tests/
 pyproject.toml
 README.md
