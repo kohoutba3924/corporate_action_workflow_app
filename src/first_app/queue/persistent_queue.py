@@ -35,3 +35,10 @@ class PersistentQueue:
 
     def size(self) -> int:
         return sum(1 for a in self.all() if a.status == CorporateActionStatus.RECEIVED)
+
+    def peek(self) -> CorporateAction | None:
+        actions = self.store.load_all()
+        for action in actions:
+            if action.status == CorporateActionStatus.RECEIVED:
+                return action
+        return None

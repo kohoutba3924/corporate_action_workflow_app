@@ -7,7 +7,7 @@ from first_app.processor.strategies.split_processor import SplitProcessor
 from first_app.processor.strategies.merger_processor import MergerProcessor
 from first_app.processor.strategy_factory import get_processor
 from first_app.processor.action_processor import ActionProcessor
-from first_app.queue.in_memory_queue import InMemoryQueue
+from tests.utils.queue_helpers import make_test_queue
 
 # -----------------------------------------------------------------------------
 # STRATEGY UNIT TESTS
@@ -78,7 +78,7 @@ def test_factory_raises_for_unknown_type():
 
 
 def test_processor_routes_to_dividend_strategy():
-    q = InMemoryQueue()
+    q, _ = make_test_queue()
     processor = ActionProcessor(q)
 
     action = CorporateAction(
@@ -90,31 +90,33 @@ def test_processor_routes_to_dividend_strategy():
     q.enqueue(action)
 
     processed = processor.process_next()
-
     assert processed is True
-    assert action.status == CorporateActionStatus.COMPLETED
-    assert action.metadata["calculated_amount"] == 1.0
+
+    stored = q.all()[0]
+    assert stored.status == CorporateActionStatus.COMPLETED
+    assert stored.metadata["calculated_amount"] == 1.0
 
 
 def test_processor_routes_to_split_strategy():
-    q = InMemoryQueue()
+    q, _ = make_test_queue()
     processor = ActionProcessor(q)
 
     action = CorporateAction(
         action_type="SPLIT",
-        metadata={"ratio": "2:1"},
+        metadata={"ratio": "2:1"},  # ratio is optional in your current domain model
     )
     q.enqueue(action)
 
     processed = processor.process_next()
-
     assert processed is True
-    assert action.status == CorporateActionStatus.COMPLETED
-    assert action.metadata["applied_ratio"] == "2:1"
+
+    stored = q.all()[0]
+    assert stored.status == CorporateActionStatus.COMPLETED
+    assert stored.metadata["applied_ratio"] == "2:1"
 
 
 def test_processor_routes_to_merger_strategy():
-    q = InMemoryQueue()
+    q, _ = make_test_queue()
     processor = ActionProcessor(q)
 
     action = CorporateAction(
@@ -124,10 +126,11 @@ def test_processor_routes_to_merger_strategy():
     q.enqueue(action)
 
     processed = processor.process_next()
-
     assert processed is True
-    assert action.status == CorporateActionStatus.COMPLETED
-    assert action.metadata["merged"] is True
+
+    stored = q.all()[0]
+    assert stored.status == CorporateActionStatus.COMPLETED
+    assert stored.metadata["merged"] is True
 
 
 # -----------------------------------------------------------------------------
@@ -136,7 +139,7 @@ def test_processor_routes_to_merger_strategy():
 
 
 def test_processor_fails_on_unknown_action_type():
-    q = InMemoryQueue()
+    q, _ = make_test_queue()
     processor = ActionProcessor(q)
 
     action = CorporateAction(
@@ -146,6 +149,7 @@ def test_processor_fails_on_unknown_action_type():
     q.enqueue(action)
 
     processed = processor.process_next()
-
     assert processed is False
-    assert action.status == CorporateActionStatus.FAILED
+
+    stored = q.all()[0]
+    assert stored.status == CorporateActionStatus.FAILED
