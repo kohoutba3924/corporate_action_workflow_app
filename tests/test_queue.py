@@ -1,4 +1,4 @@
-from first_app.models.corporate_actions import CorporateAction
+from corporate_action_workflow_app.models.corporate_actions import CorporateAction
 from tests.utils.queue_helpers import make_test_queue
 
 

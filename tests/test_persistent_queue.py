@@ -1,7 +1,7 @@
 from datetime import date
 
-from first_app.queue.persistent_queue import PersistentQueue
-from first_app.models.corporate_actions import CorporateAction, CorporateActionStatus
+from corporate_action_workflow_app.queue.persistent_queue import PersistentQueue
+from corporate_action_workflow_app.models.corporate_actions import CorporateAction, CorporateActionStatus
 from tests.utils.queue_helpers import make_test_queue
 
 

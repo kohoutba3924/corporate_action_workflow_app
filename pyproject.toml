@@ -1,7 +1,7 @@
 [project]
-name = "first_app"
+name = "corporate_action_workflow_app"
 version = "0.1.0"
-description = "My first Python application project."
+description = "A workflow engine application for processing corporate actions."
 requires-python = ">=3.10"
 readme = "README.md"
 authors = [
@@ -15,7 +15,7 @@ dependencies = [
 ]
 
 [project.scripts]
-first-app = "first_app.cli:main"
+corp-action-app = "corporate_action_workflow_app.cli:main"
 
 
 [build-system]

@@ -1,6 +1,6 @@
-from first_app.processor.strategy_factory import get_processor
-from first_app.services.logging_service import log_transition
-from first_app.services.validation import validate_action
+from corporate_action_workflow_app.processor.strategy_factory import get_processor
+from corporate_action_workflow_app.services.logging_service import log_transition
+from corporate_action_workflow_app.services.validation import validate_action
 
 
 class ActionProcessor:

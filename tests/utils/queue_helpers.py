@@ -1,6 +1,6 @@
 import tempfile
 import json
-from first_app.queue.persistent_queue import PersistentQueue
+from corporate_action_workflow_app.queue.persistent_queue import PersistentQueue
 
 
 def make_test_queue():

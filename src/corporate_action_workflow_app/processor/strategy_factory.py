@@ -1,6 +1,6 @@
-from first_app.processor.strategies.dividend_processor import DividendProcessor
-from first_app.processor.strategies.merger_processor import MergerProcessor
-from first_app.processor.strategies.split_processor import SplitProcessor
+from corporate_action_workflow_app.processor.strategies.dividend_processor import DividendProcessor
+from corporate_action_workflow_app.processor.strategies.merger_processor import MergerProcessor
+from corporate_action_workflow_app.processor.strategies.split_processor import SplitProcessor
 
 
 def get_processor(action_type: str):

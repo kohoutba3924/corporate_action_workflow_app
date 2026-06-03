@@ -1,7 +1,7 @@
 import pytest
 from datetime import date, timedelta
 
-from first_app.models.corporate_actions import CorporateAction, CorporateActionStatus
+from corporate_action_workflow_app.models.corporate_actions import CorporateAction, CorporateActionStatus
 
 # -----------------------------------------------------------------------------
 # INITIALIZATION & STATE TRANSITIONS

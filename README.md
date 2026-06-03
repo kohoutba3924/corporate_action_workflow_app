@@ -201,7 +201,7 @@ pip install -e .
 
 This installs:
 
-- The first_app package
+- The corporate_action_workflow_app package
 - All required dependencies
 - The CLI entry point
 
@@ -247,7 +247,7 @@ Interactive documentation is automatically generated at:
  A simplified view of the repository layout:
 
 src/
-  first_app/
+  corporate_action_workflow_app/
       api/
       cli/
       models/

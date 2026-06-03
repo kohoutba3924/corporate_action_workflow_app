@@ -1,5 +1,5 @@
-from first_app.models.corporate_actions import CorporateAction, CorporateActionStatus
-from first_app.persistence.json_store import JsonStore
+from corporate_action_workflow_app.models.corporate_actions import CorporateAction, CorporateActionStatus
+from corporate_action_workflow_app.persistence.json_store import JsonStore
 
 
 class PersistentQueue:

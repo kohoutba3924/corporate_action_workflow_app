@@ -1,7 +1,7 @@
 import json
 import tempfile
 from fastapi.testclient import TestClient
-from first_app.api.app import create_app
+from corporate_action_workflow_app.api.app import create_app
 
 
 def make_client():

@@ -11,3 +11,6 @@ __pycache__/
 # OS junk
 .DS_Store
 Thumbs.db
+
+# Python build metadata
+*.egg-info/

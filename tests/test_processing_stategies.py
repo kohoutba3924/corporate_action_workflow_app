@@ -1,12 +1,12 @@
 import pytest
 from datetime import date
 
-from first_app.models.corporate_actions import CorporateAction, CorporateActionStatus
-from first_app.processor.strategies.dividend_processor import DividendProcessor
-from first_app.processor.strategies.split_processor import SplitProcessor
-from first_app.processor.strategies.merger_processor import MergerProcessor
-from first_app.processor.strategy_factory import get_processor
-from first_app.processor.action_processor import ActionProcessor
+from corporate_action_workflow_app.models.corporate_actions import CorporateAction, CorporateActionStatus
+from corporate_action_workflow_app.processor.strategies.dividend_processor import DividendProcessor
+from corporate_action_workflow_app.processor.strategies.split_processor import SplitProcessor
+from corporate_action_workflow_app.processor.strategies.merger_processor import MergerProcessor
+from corporate_action_workflow_app.processor.strategy_factory import get_processor
+from corporate_action_workflow_app.processor.action_processor import ActionProcessor
 from tests.utils.queue_helpers import make_test_queue
 
 # -----------------------------------------------------------------------------

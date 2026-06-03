@@ -1,9 +1,9 @@
 import argparse
 from datetime import date
 
-from first_app.models.corporate_actions import CorporateAction
-from first_app.processor.action_processor import ActionProcessor
-from first_app.queue.persistent_queue import PersistentQueue
+from corporate_action_workflow_app.models.corporate_actions import CorporateAction
+from corporate_action_workflow_app.processor.action_processor import ActionProcessor
+from corporate_action_workflow_app.queue.persistent_queue import PersistentQueue
 
 # Default persistence file
 DEFAULT_STORE = "data/actions.json"
@@ -125,7 +125,7 @@ def handle_stats(queue):
 
     print("Action statistics:")
     for status, count in counts.items():
-        print(f"  {status.value}: {count}")
+        print(f"  {status.name}: {count}")
 
 
 def handle_clear(queue):

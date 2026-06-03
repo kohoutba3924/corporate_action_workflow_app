@@ -1,9 +1,9 @@
 from fastapi import FastAPI, HTTPException
 
-from first_app.api.models import ActionCreate, ActionResponse
-from first_app.models.corporate_actions import CorporateAction
-from first_app.processor.action_processor import ActionProcessor
-from first_app.queue.persistent_queue import PersistentQueue
+from corporate_action_workflow_app.api.models import ActionCreate, ActionResponse
+from corporate_action_workflow_app.models.corporate_actions import CorporateAction
+from corporate_action_workflow_app.processor.action_processor import ActionProcessor
+from corporate_action_workflow_app.queue.persistent_queue import PersistentQueue
 
 
 def create_app(store_path: str = "data/actions.json") -> FastAPI:

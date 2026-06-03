@@ -25,11 +25,11 @@ pip install -r requirements.txt
 pip install -e .
 ```
 
-The final step (`pip install -e .`) installs the project in editable mode so the CLI entry point (`first-app`) is available during development.
+The final step (`pip install -e .`) installs the project in editable mode so the CLI entry point (`corp-action-app`) is available during development.
 
 ## Project Structure Notes
 - Uses a standard `src/` layout.
-- Application code lives under `src/first_app/`.
+- Application code lives under `src/corporate_action_workflow_app/`.
 - Tests are located under `tests/`.
 - The CLI is exposed via a console script entry point defined in `pyproject.toml`.
 

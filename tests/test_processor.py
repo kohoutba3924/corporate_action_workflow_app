@@ -1,7 +1,7 @@
 from datetime import date
 
-from first_app.processor.action_processor import ActionProcessor
-from first_app.models.corporate_actions import (
+from corporate_action_workflow_app.processor.action_processor import ActionProcessor
+from corporate_action_workflow_app.models.corporate_actions import (
     CorporateAction,
     CorporateActionStatus,
 )
