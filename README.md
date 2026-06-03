@@ -210,7 +210,7 @@ This installs:
 You can confirm the installation by running:
 
 ```bash
-first-app --help
+corp-action-app --help
 ```
 
 This will display the available CLI commands, while also confirming the install.
@@ -220,11 +220,11 @@ This will display the available CLI commands, while also confirming the install.
 Once installed, the CLI is available globally:
 
 ```bash
-first-app create --type DIVIDEND --amount 4.22
-first-app list
-first-app process
-first-app stats
-first-app clear
+corp-action-app create --type DIVIDEND --amount 4.22
+corp-action-app list
+corp-action-app process
+corp-action-app stats
+corp-action-app clear
 ```
 
 The CLI interacts with the same persistent queue and processor used by the API
@@ -298,7 +298,7 @@ Because persistence is abstracted behind `JsonStore` and `PersistentQueue`, repl
 
 ## 5.4 Extending the CLI
 
-The CLI is built on top of the same queue and processor used by the API. New commands can be added by:
+New commands can be added by:
 
 - Creating a new subcommand in the CLI module.
 - Calling into the queue or processor as needed.
@@ -308,7 +308,7 @@ This allows the CLI to grow alongside the system without duplicating logic.
 
 ## 5.5 Extending the API
 
-The FastAPI layer is intentionally thin. To add new endpoints:
+To add new endpoints:
 
 - Implement a new route function.
 - Delegate business logic.
@@ -366,7 +366,6 @@ Add instrumentation to expose operational metrics such as:
 - Number of actions processed  
 - Processing latency  
 - Failure rates  
-- Queue size over time  
 
 These metrics can be exported to Prometheus, Grafana, or similar systems to support monitoring and alerting.
 
