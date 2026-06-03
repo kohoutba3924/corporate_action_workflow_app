@@ -15,7 +15,7 @@ dependencies = [
 ]
 
 [project.scripts]
-corp-action-app = "corporate_action_workflow_app.cli:main"
+corp-action-app = "corporate_action_workflow_app.cli.main:main"
 
 
 [build-system]
